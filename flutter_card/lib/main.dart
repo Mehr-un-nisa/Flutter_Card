@@ -1,5 +1,7 @@
 // import 'dart:html';
 
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,11 +38,41 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Text(
-          'Drawer',
-          style: TextStyle(
-            fontSize: 36,
-            color: Colors.pink,
+        child: Card(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                title: Text(
+                  'Mehr-un-nisa',
+                  style: TextStyle(fontSize: 17),
+                ),
+                subtitle:
+                    Text('A computer Science student styding in UET Lahore.'),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  SizedBox(width: 8),
+                  TextButton(
+                    child: Text('Click here'),
+                    onPressed: () {
+                      setState(() {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Hello world👋'),
+                              content: Text('Hi, how are you ?'),
+                            );
+                          },
+                        );
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
